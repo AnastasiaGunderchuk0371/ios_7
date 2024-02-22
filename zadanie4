@@ -1,0 +1,108 @@
+// Создаем enum с Integer RawValue
+enum Direction: Int {
+    case north = 1
+    case south
+    case east
+    case west
+}
+
+// Создаем enum с String RawValue
+enum Planet: String {
+    case mercury = "Меркурий"
+    case venus = "Венера"
+    case earth = "Земля"
+    case mars = "Марс"
+}
+
+// Перечисления для анкеты сотрудника
+enum Gender {
+    case male
+    case female
+    case other
+}
+
+enum AgeCategory {
+    case child
+    case teenager
+    case adult
+    case senior
+}
+
+enum WorkExperience {
+    case none
+    case junior
+    case middle
+    case senior
+}
+
+// Перечисление цветов радуги
+enum RainbowColor: String {
+    case red = "красный"
+    case orange = "оранжевый"
+    case yellow = "желтый"
+    case green = "зеленый"
+    case blue = "синий"
+    case indigo = "сине-фиолетовый"
+    case violet = "фиолетовый"
+}
+
+// Функция, выводящая в консоль фразы с цветами радуги
+func printRainbowColors(colors: [RainbowColor]) {
+    for color in colors {
+        print("\(color.rawValue) цвет радуги")
+    }
+}
+
+// Enum с оценками (школьные оценки в виде слов переведены в числа)
+enum Score: String {
+    case excellent = "Отлично"
+    case good = "Хорошо"
+    case satisfactory = "Удовлетворительно"
+    case unsatisfactory = "Неудовлетворительно"
+    
+    // Функция, возвращающая числовое значение оценки
+    func numericScore() -> Int {
+        switch self {
+        case .excellent:
+            return 5
+        case .good:
+            return 4
+        case .satisfactory:
+            return 3
+        case .unsatisfactory:
+            return 2
+        }
+    }
+}
+
+// Использование enum Score
+func gradeStudent(score: Score) {
+    print("Ученику выставлена оценка: \(score.numericScore())")
+}
+
+// Enum для автомобилей в гараже
+enum Car: String {
+    case audi = "Audi"
+    case bmw = "BMW"
+    case mercedes = "Mercedes-Benz"
+    case tesla = "Tesla"
+    case volkswagen = "Volkswagen"
+    
+    // Метод, выводящий информацию о машинах в гараже
+    static func carsInGarage() {
+        let cars: [Car] = [.audi, .bmw, .mercedes, .tesla, .volkswagen]
+        for car in cars {
+            print("В гараже стоит \(car.rawValue)")
+        }
+    }
+}
+
+// Примеры использования
+// Вывод информации о цветах радуги
+printRainbowColors(colors: [.red, .violet, .green])
+
+// Выставление оценки ученику
+gradeStudent(score: .good)
+
+// Вывод автомобилей в гараже
+Car.carsInGarage()
